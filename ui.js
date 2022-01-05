@@ -33,6 +33,30 @@ class UI {
     
   }
 
+// Show User Repos
+  showRepos(repos) {
+    let output = '';
+    repos.forEach(repo => {
+      output += `
+        <div class="card card-body mb-2">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="${repo.html_url}" class="text-decoration-none" target="_blank">${repo.name}</a>
+            </div>
+            <div class="col-md-6">
+              <span class="badge bg-primary">Star: ${repo.stargazers_count}</span>
+              <span class="badge bg-secondary">Watchers: ${repo.watchers}</span>
+              <span class="badge bg-success">Forks: ${repo.forms_count}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    })
+
+    // Output repositories
+    document.getElementById('repos').innerHTML = output;
+  }
+
   // show alert message
   showAlert(message, className) {
     // Clear any remaining alert
